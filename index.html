@@ -4,30 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extract Major Color</title>
+    <title>Color Picker Online 🎨</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <header>
-        <h1>Color picker online 🎨 </h1>
+<body class="bg-light">
+
+    <header class="bg-dark text-light text-center py-4 mb-4">
+        <h1>Color Picker Online 🎨</h1>
     </header>
 
-    <p> ( Choose a small size image, othervice your browser will stuck 🙂 )</p>
-    <input type="file" id="imageInput" accept="image/*">
-    <canvas id="canvas" style="display:none;"></canvas>
+    <div class="container text-center">
+        <p class="text-muted">(Choose a small size image, otherwise your browser may freeze 🙂)</p>
+        <input type="file" id="imageInput" accept="image/*" class="form-control mb-3 w-50 mx-auto">
 
-    <div style="display: flex;">
-        <div id="colorBox1" style="width: 100px; height: 100px; border: 1px solid #000;"></div>
-        <div id="colorBox2" style="width: 100px; height: 100px; border: 1px solid #000;"></div>
-        <div id="colorBox3" style="width: 100px; height: 100px; border: 1px solid #000;"></div>
+        <div class="d-flex justify-content-center mb-3">
+            <canvas id="canvas" style="display:none;"></canvas>
+
+            <div id="colorBoxes" class="d-flex">
+                <div id="colorBox1" class="border border-dark rounded d-flex align-items-center justify-content-center"
+                     style="width: 100px; height: 100px; margin: 0 10px; color: #fff;"></div>
+                <div id="colorBox2" class="border border-dark rounded d-flex align-items-center justify-content-center"
+                     style="width: 100px; height: 100px; margin: 0 10px; color: #fff;"></div>
+                <div id="colorBox3" class="border border-dark rounded d-flex align-items-center justify-content-center"
+                     style="width: 100px; height: 100px; margin: 0 10px; color: #fff;"></div>
+            </div>
+        </div>
+
+        <div id="additionalColors" class="d-flex justify-content-center flex-wrap"></div>
     </div>
-    <div id="additionalColors"></div>
-    
-    <footer>
-        Kasun Miuranga © 2024 All Rights Reserved
+
+    <footer class="bg-dark text-light text-center py-3 mt-4">
+        <p>Kasun Miuranga © 2024 All Rights Reserved</p>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+
 </body>
 
 </html>

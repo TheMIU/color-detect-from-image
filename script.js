@@ -50,30 +50,52 @@ document.getElementById('imageInput').addEventListener('change', function (event
             if (uniqueColors.length >= 13) break; // Get only top 13 unique colors (3 for main + 10 additional)
         }
 
+        // Convert RGB to Hex
+        function rgbToHex(rgb) {
+            const [r, g, b] = rgb.split(',').map(Number);
+            return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+        }
+
         // Assign the first three colors
         const dominantColor = uniqueColors[0] || '0,0,0';
         const secondaryColor = uniqueColors[1] || '0,0,0';
         const tertiaryColor = uniqueColors[2] || '0,0,0';
 
+        const dominantHex = rgbToHex(dominantColor);
+        const secondaryHex = rgbToHex(secondaryColor);
+        const tertiaryHex = rgbToHex(tertiaryColor);
+
         console.log(`Dominant Color: rgb(${dominantColor})`);
         console.log(`Secondary Color: rgb(${secondaryColor})`);
         console.log(`Tertiary Color: rgb(${tertiaryColor})`);
 
-        // Apply the colors to the divs
+        // Apply the colors and hex codes to the divs
         colorBox1.style.backgroundColor = `rgb(${dominantColor})`;
-        colorBox2.style.backgroundColor = `rgb(${secondaryColor})`;
-        colorBox3.style.backgroundColor = `rgb(${tertiaryColor})`;
+        colorBox1.innerHTML = dominantHex;
 
-        // Display the next 10 colors
+        colorBox2.style.backgroundColor = `rgb(${secondaryColor})`;
+        colorBox2.innerHTML = secondaryHex;
+
+        colorBox3.style.backgroundColor = `rgb(${tertiaryColor})`;
+        colorBox3.innerHTML = tertiaryHex;
+
+        // Display the next 10 colors with their hex codes
         additionalColorsContainer.innerHTML = ''; // Clear any previous colors
         for (let i = 3; i < uniqueColors.length; i++) {
             const colorDiv = document.createElement('div');
+            const colorHex = rgbToHex(uniqueColors[i]);
+
             colorDiv.style.width = '100px';
             colorDiv.style.height = '100px';
             colorDiv.style.border = '1px solid #000';
             colorDiv.style.backgroundColor = `rgb(${uniqueColors[i]})`;
             colorDiv.style.display = 'inline-block';
             colorDiv.style.margin = '5px';
+            colorDiv.style.color = '#fff';
+            colorDiv.style.textAlign = 'center';
+            colorDiv.style.lineHeight = '100px';
+            colorDiv.innerHTML = colorHex;
+
             additionalColorsContainer.appendChild(colorDiv);
         }
     };
