@@ -9,6 +9,7 @@ document.getElementById('imageInput').addEventListener('change', function (event
     const colorBox2 = document.getElementById('colorBox2');
     const colorBox3 = document.getElementById('colorBox3');
     const additionalColorsContainer = document.getElementById('additionalColors');
+    const chosenImage = document.getElementById('chosenImage');
 
     img.onload = function () {
         console.log('Image loaded');
@@ -88,9 +89,11 @@ document.getElementById('imageInput').addEventListener('change', function (event
             colorDiv.style.width = '100px';
             colorDiv.style.height = '100px';
             colorDiv.style.border = '1px solid #000';
+            colorDiv.style.scale = '0.8';
+            colorDiv.style.borderRadius = '10px';
             colorDiv.style.backgroundColor = `rgb(${uniqueColors[i]})`;
             colorDiv.style.display = 'inline-block';
-            colorDiv.style.margin = '5px';
+            colorDiv.style.margin = '1px';
             colorDiv.style.color = '#fff';
             colorDiv.style.textAlign = 'center';
             colorDiv.style.lineHeight = '100px';
@@ -101,6 +104,9 @@ document.getElementById('imageInput').addEventListener('change', function (event
     };
 
     if (file) {
+        // Display the chosen image in a smaller preview
+        chosenImage.src = URL.createObjectURL(file);
+        chosenImage.style.display = 'block'; // Show the image preview
         img.src = URL.createObjectURL(file);
         console.log('Image source set:', img.src);
     }

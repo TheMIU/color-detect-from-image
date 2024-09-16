@@ -11,31 +11,37 @@
 
 <body class="bg-light">
 
-    <header class="bg-dark text-light text-center py-4 mb-4">
+    <header class="bg-dark text-light text-center py-4 mb-4" style="min-height: 10vh;">
         <h1>Color Picker Online 🎨</h1>
     </header>
 
-    <div class="container text-center">
+    <div class="container text-center" style="min-height: 70vh;">
         <p class="text-muted">(Choose a small size image, otherwise your browser may freeze 🙂)</p>
         <input type="file" id="imageInput" accept="image/*" class="form-control mb-3 w-50 mx-auto">
+
+        <!-- Image Preview -->
+        <div id="imagePreview" class="mb-3" style="display: flex; justify-content: center;">
+            <img id="chosenImage" src="" alt="Chosen Image" style="max-width: 200px; display: none;"
+                class="img-thumbnail">
+        </div>
 
         <div class="d-flex justify-content-center mb-3">
             <canvas id="canvas" style="display:none;"></canvas>
 
             <div id="colorBoxes" class="d-flex">
                 <div id="colorBox1" class="border border-dark rounded d-flex align-items-center justify-content-center"
-                     style="width: 100px; height: 100px; margin: 0 10px; color: #fff;"></div>
+                    style="width: 100px; height: 100px; margin: 0 10px; color: #fff;"></div>
                 <div id="colorBox2" class="border border-dark rounded d-flex align-items-center justify-content-center"
-                     style="width: 100px; height: 100px; margin: 0 10px; color: #fff;"></div>
+                    style="width: 100px; height: 100px; margin: 0 10px; color: #fff;"></div>
                 <div id="colorBox3" class="border border-dark rounded d-flex align-items-center justify-content-center"
-                     style="width: 100px; height: 100px; margin: 0 10px; color: #fff;"></div>
+                    style="width: 100px; height: 100px; margin: 0 10px; color: #fff;"></div>
             </div>
         </div>
 
         <div id="additionalColors" class="d-flex justify-content-center flex-wrap"></div>
     </div>
 
-    <footer class="bg-dark text-light text-center py-3 mt-4">
+    <footer class="bg-dark text-light text-center py-3 mt-4" style="min-height: 10vh; font-size: smaller;">
         <p>Kasun Miuranga © 2024 All Rights Reserved</p>
     </footer>
 
