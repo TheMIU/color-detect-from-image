@@ -4,13 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extract Major Colors</title>
+    <title>Extract Major Color</title>
 </head>
 
 <body>
+    <header>
+        <h1>Color picker online 🎨 </h1>
+    </header>
+
+    <p> ( Choose a small size image, othervice your browser will stuck 🙂 )</p>
     <input type="file" id="imageInput" accept="image/*">
     <canvas id="canvas" style="display:none;"></canvas>
-    <div id="colorBox" style="width: 100px; height: 100px; border: 1px solid #000;"></div>
+
+    <div style="display: flex;">
+        <div id="colorBox1" style="width: 100px; height: 100px; border: 1px solid #000;"></div>
+        <div id="colorBox2" style="width: 100px; height: 100px; border: 1px solid #000;"></div>
+        <div id="colorBox3" style="width: 100px; height: 100px; border: 1px solid #000;"></div>
+    </div>
+    <div id="additionalColors"></div>
+    
+    <footer>
+        Kasun Miuranga © 2024 All Rights Reserved
+    </footer>
 
     <script src="script.js"></script>
 </body>
